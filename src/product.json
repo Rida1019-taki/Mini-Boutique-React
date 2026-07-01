@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Toyota Corolla",
+    "price": 220000,
+    "category": "Voiture",
+    "image": "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=500"
+  },
+  {
+    "id": 2,
+    "name": "BMW X5",
+    "price": 650000,
+    "category": "SUV",
+    "image": "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=500"
+  },
+  {
+    "id": 3,
+    "name": "Mercedes C-Class",
+    "price": 580000,
+    "category": "Berline",
+    "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=500"
+  },
+  {
+    "id": 4,
+    "name": "Ford Ranger",
+    "price": 420000,
+    "category": "Pick-up",
+    "image": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=500"
+  }
+]
