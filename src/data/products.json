@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "PC Portable",
+    "price": 7000,
+    "category": "Informatique",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "name": "Souris",
+    "price": 150,
+    "category": "Informatique",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 3,
+    "name": "Chaise",
+    "price": 500,
+    "category": "Maison",
+    "image": "https://via.placeholder.com/150"
+  }
+]
