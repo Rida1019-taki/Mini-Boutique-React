@@ -1,68 +1,69 @@
 import './App.css';
-import {useState} from "react";
+import { useState } from "react";
+import productsData from "./data/products.json";
+
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import CategoryFilter from "./components/CategoryFilter";
+import ProductList from "./components/ProductList";
+import Cart from "./components/Cart";
+
 
 
 function App() {
-    const [name, setName] = useState("");
+   const [products , setProducts] = useState(productsData);
 
-    function handleInputChange(event) {
-        console.log(event);
-        setName(event.target.value);
-    }
+   const [cart , setCart] = useState([]);
+
+   const [category , setCategory] = useState("Tous");
+
+   function addToCart(product){
+       setCart([...cart, product]);
+   }
+
+   function removeFormatCart(id){
+       setCart(cart.filter(i => i.id !== id));
+   }
+
+   function deleteProducts(id){
+       setProducts(products.filter(p => p.id !== id));
+   }
+
+   const filterProducts = category === "Tous" ? products : products.filter(p =>
+        p.category === category);
+
+   const total = cart.reduce((sum, item) => sum + item.price, 0);
 
     return (
-        <div>
-            <input
-                type="text"
-                value={name}
-                onChange={handleInputChange}
-                placeholder="Entrez votre nom"
-            />
+        <div className="app-container">
+            <header className="shop-header">
+                <Header />
+                <CategoryFilter
+                    category={category}
+                    setCategory={setCategory}
+                />
+            </header>
 
-            <h3>Bonjour : {name}</h3>
+            <main className="shop-main">
+                <section className="products-section">
+                    <ProductList
+                        product={filterProducts}
+                        addToCart={addToCart}
+                        deleteProduct={deleteProducts}
+                    />
+                </section>
+
+                <aside className="cart-section">
+                    <Cart
+                        cart={cart}
+                        total={total}
+                        removeFormatCard={removeFormatCart}
+                    />
+                </aside>
+            </main>
+
+            <Footer />
         </div>
-
     );
 }
 export default App;
-
-
-
-
-
-
-/*let counter = 0;
-    return(
-        <div>
-            <p>counter : {counter}</p>
-            <button onClick={()=>
-            {counter++ && console.log(counter)} }>Click</button>
-        </div>
-        */
-
-
-
-
-
-
-/*const [isVisible, setIsVisible] = useState(false);
-
-    return (
-        <div className="container">
-            <button
-                className="btn"
-                onClick={() => setIsVisible(!isVisible)}
-            >
-                {isVisible ? "Cacher" : "Afficher"}
-            </button>
-
-            {isVisible && (
-                <p className="message">
-                    Coucou !
-                </p>
-            )}
-        </div>*/
-
-
-
-/**/

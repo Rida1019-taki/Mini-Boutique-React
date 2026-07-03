@@ -1,17 +1,23 @@
 
 function ProductCard({product, addToCart, deleteProduct}){
     return (
-      <div>
-          <img src={product.image} alt={product.name}/>
-          <h3>{product.name}</h3>
-          <p>Prix : {product.price}</p>
-          <p>Categorie : {product.category}</p>
-          <button onClick={() => addToCart(product)}>
-            Ajouter
-          </button>
-          <button onClick={() => deleteProduct(product.id)}>
-            Supprimer
-          </button>
+      <div className="product-card">
+          <div className="product-image-container">
+              <img className="product-image" src={product.image} alt={product.name}/>
+              <span className="product-category-tag">{product.category}</span>
+          </div>
+          <div className="product-details">
+              <h3 className="product-title">{product.name}</h3>
+              <p className="product-price">{product.price} DH</p>
+              <div className="product-card-buttons">
+                  <button className="btn-add" onClick={() => addToCart(product)}>
+                    Ajouter au panier
+                  </button>
+                  <button className="btn-delete" onClick={() => deleteProduct(product.id)}>
+                    Supprimer
+                  </button>
+              </div>
+          </div>
       </div>
     );
 }
