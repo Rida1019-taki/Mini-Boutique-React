@@ -1,23 +1,86 @@
 [
   {
     "id": 1,
-    "name": "PC Portable",
+    "name": "PC Portable UltraBook",
     "price": 7000,
     "category": "Informatique",
-    "image": "/laptop.jpg"
+    "image": "https://images.unsplash.com/photo-1496181130204-755241544e35?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": 2,
-    "name": "Souris",
+    "name": "Souris Sans Fil Ergonomique",
     "price": 150,
     "category": "Informatique",
-    "image": "/mouse.jpg"
+    "image": "https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=600&q=80"
   },
   {
     "id": 3,
-    "name": "Chaise",
+    "name": "Chaise de Bureau Ergonomique",
     "price": 500,
     "category": "Maison",
-    "image": "/chair.jpg"
+    "image": "https://images.unsplash.com/photo-1505797149-43b0069ec26b?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 4,
+    "name": "Clavier Mécanique RGB",
+    "price": 250,
+    "category": "Informatique",
+    "image": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 5,
+    "name": "Écran IPS Gaming 24 pouces",
+    "price": 1800,
+    "category": "Informatique",
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 6,
+    "name": "Casque Audio Hi-Fi Bluetooth",
+    "price": 350,
+    "category": "Électronique",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 7,
+    "name": "Smartphone Pro Max 5G",
+    "price": 4500,
+    "category": "Électronique",
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 8,
+    "name": "Table de Bureau en Bois",
+    "price": 900,
+    "category": "Maison",
+    "image": "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 9,
+    "name": "Canapé Nordique Confort",
+    "price": 3200,
+    "category": "Maison",
+    "image": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 10,
+    "name": "Lampe de Bureau LED Tactile",
+    "price": 180,
+    "category": "Maison",
+    "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 11,
+    "name": "Montre Connectée AMOLED",
+    "price": 1200,
+    "category": "Électronique",
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    "id": 12,
+    "name": "Imprimante Jet d'Encre Wi-Fi",
+    "price": 1400,
+    "category": "Informatique",
+    "image": "https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=600&q=80"
   }
 ]
