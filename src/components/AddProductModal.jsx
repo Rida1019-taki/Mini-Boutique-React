@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { CloseIcon, PlusIcon } from './Icons';
+import { useState } from 'react';
 
 function AddProductModal({ isOpen, onClose, onAddProduct }) {
   const [formData, setFormData] = useState({
@@ -19,7 +18,6 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
       ...prev,
       [name]: value
     }));
-    // Clear error
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -30,23 +28,22 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = 'Le nom est obligatoire';
     if (!formData.price || Number(formData.price) <= 0) newErrors.price = 'Le prix doit être supérieur à 0';
-    
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
     const newProduct = {
-      id: Date.now(), // Generate unique ID
+      id: Date.now(),
       name: formData.name,
       price: Number(formData.price),
       category: formData.category,
-      image: formData.image.trim() || null // Let it fallback if blank
+      image: formData.image.trim() || null
     };
 
     onAddProduct(newProduct);
-    
-    // Reset form
+
     setFormData({
       name: '',
       price: '',
@@ -58,25 +55,22 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content add-product-modal animate-scale" onClick={e => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={onClose} aria-label="Fermer le modal">
-          <CloseIcon className="w-5 h-5" />
+      <div className="modal" onClick={e => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Fermer">
+          ✕
         </button>
 
-        <form onSubmit={handleSubmit} className="add-product-form">
-          <h3 className="modal-title">
-            <PlusIcon className="w-5 h-5 text-primary" />
-            <span>Ajouter un produit</span>
-          </h3>
-          <p className="modal-subtitle">Ajoutez un nouvel article à votre catalogue de vente.</p>
+        <form onSubmit={handleSubmit}>
+          <h3>➕ Ajouter un produit</h3>
+          <p className="modal-subtitle">Ajoutez un nouvel article à votre catalogue.</p>
 
           <div className="form-group">
             <label htmlFor="prod-name">Nom du produit *</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               id="prod-name"
-              name="name" 
-              value={formData.name} 
+              name="name"
+              value={formData.name}
               onChange={handleChange}
               placeholder="Ex: Clavier Mécanique RGB"
               className={errors.name ? 'input-error' : ''}
@@ -88,11 +82,11 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
           <div className="form-row">
             <div className="form-group">
               <label htmlFor="prod-price">Prix (DH) *</label>
-              <input 
-                type="number" 
+              <input
+                type="number"
                 id="prod-price"
-                name="price" 
-                value={formData.price} 
+                name="price"
+                value={formData.price}
                 onChange={handleChange}
                 placeholder="Ex: 450"
                 className={errors.price ? 'input-error' : ''}
@@ -104,32 +98,30 @@ function AddProductModal({ isOpen, onClose, onAddProduct }) {
 
             <div className="form-group">
               <label htmlFor="prod-category">Catégorie *</label>
-              <div className="select-wrapper">
-                <select 
-                  id="prod-category"
-                  name="category" 
-                  value={formData.category} 
-                  onChange={handleChange}
-                >
-                  <option value="Informatique">Informatique</option>
-                  <option value="Électronique">Électronique</option>
-                  <option value="Maison">Maison</option>
-                </select>
-              </div>
+              <select
+                id="prod-category"
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+              >
+                <option value="Informatique">Informatique</option>
+                <option value="Électronique">Électronique</option>
+                <option value="Maison">Maison</option>
+              </select>
             </div>
           </div>
 
           <div className="form-group">
             <label htmlFor="prod-image">URL de l'image (optionnel)</label>
-            <input 
-              type="url" 
+            <input
+              type="url"
               id="prod-image"
-              name="image" 
-              value={formData.image} 
+              name="image"
+              value={formData.image}
               onChange={handleChange}
-              placeholder="Ex: https://images.unsplash.com/... (laisser vide pour le fallback)"
+              placeholder="Ex: https://images.unsplash.com/..."
             />
-            <p className="field-hint">Si vide, un magnifique visuel vectoriel sera généré automatiquement selon la catégorie.</p>
+            <p className="field-hint">Laissez vide pour utiliser une couleur de fond.</p>
           </div>
 
           <div className="modal-actions">
