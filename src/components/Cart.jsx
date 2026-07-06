@@ -1,18 +1,16 @@
-import { useState } from 'react';
+import { useState } from "react";
 import CartItem from "./CartItem";
 
 function Cart({ cart, total, removeFromCart, clearCart }) {
     const [showSuccess, setShowSuccess] = useState(false);
 
-    const handleCheckout = () => {
+    function handleCheckout() {
         if (cart.length > 0) {
+            clearCart();
             setShowSuccess(true);
-            setTimeout(() => {
-                clearCart();
-                setShowSuccess(false);
-            }, 4000);
+            setTimeout(() => setShowSuccess(false), 2000);
         }
-    };
+    }
 
     return (
         <div className="cart">
@@ -20,9 +18,9 @@ function Cart({ cart, total, removeFromCart, clearCart }) {
             <p className="cart-count">Articles : <strong>{cart.length}</strong></p>
 
             {showSuccess ? (
-                <div className="checkout-success">
-                    <h3>Commande validee !</h3>
-                    <p>Votre commande a ete enregistree avec succes.</p>
+                <div className="success">
+                    <h3>Merci !</h3>
+                    <p>Votre commande a ete enregistree.</p>
                 </div>
             ) : (
                 <>
@@ -44,7 +42,12 @@ function Cart({ cart, total, removeFromCart, clearCart }) {
                         <span>Total :</span>
                         <span>{total.toLocaleString()} DH</span>
                     </div>
-                    <button className="btn-checkout" disabled={cart.length === 0} onClick={handleCheckout}>
+
+                    <button
+                        className="btn-checkout"
+                        disabled={cart.length === 0}
+                        onClick={handleCheckout}
+                    >
                         Valider la commande
                     </button>
                 </>

@@ -1,9 +1,9 @@
 function Footer() {
-  return (
-    <footer className="footer">
-      <p>© 2026 Boutique Électronique. Tous droits réservés.</p>
-    </footer>
-  );
+    return (
+        <footer className="footer">
+            <p>&copy; 2026 Boutique Electronique</p>
+        </footer>
+    );
 }
 
 export default Footer;

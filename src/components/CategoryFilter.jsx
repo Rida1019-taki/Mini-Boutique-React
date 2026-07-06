@@ -1,19 +1,15 @@
 function CategoryFilter({ category, setCategory }) {
-  const categories = ["Tous", "Informatique", "Électronique", "Maison"];
+    const categories = ["Tous", "Informatique", "Electronique", "Maison"];
 
-  return (
-    <div className="filter-group">
-      {categories.map((cat) => (
+    return categories.map(cat => (
         <button
-          key={cat}
-          className={'filter-btn' + (category === cat ? ' active' : '')}
-          onClick={() => setCategory(cat)}
+            key={cat}
+            className={category === cat ? "filter-btn active" : "filter-btn"}
+            onClick={() => setCategory(cat)}
         >
-          {cat}
+            {cat}
         </button>
-      ))}
-    </div>
-  );
+    ));
 }
 
 export default CategoryFilter;

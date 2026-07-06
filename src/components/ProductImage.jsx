@@ -1,34 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-const categoryColors = {
-  'Informatique': '#4f46e5',
-  'Électronique': '#0891b2',
-  'Maison': '#d97706',
-};
+function ProductImage({ src, alt }) {
+    const [error, setError] = useState(false);
 
-function ProductImage({ src, alt, category }) {
-  const [error, setError] = useState(false);
+    if (error || !src) {
+        return (
+            <div className="placeholder" style={{ background: "#999" }}>
+                Image
+            </div>
+        );
+    }
 
-  const color = categoryColors[category] || '#6b7280';
-
-  if (error || !src) {
     return (
-      <div
-        className="product-image-placeholder"
-        style={{ background: color }}
-      >
-        {category || 'Produit'}
-      </div>
+        <img src={src} alt={alt} onError={() => setError(true)} />
     );
-  }
-
-  return (
-    <img
-      src={src}
-      alt={alt}
-      onError={() => setError(true)}
-    />
-  );
 }
 
 export default ProductImage;
