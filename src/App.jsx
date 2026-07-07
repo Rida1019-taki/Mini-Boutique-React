@@ -17,12 +17,7 @@ function App() {
     }
 
     function removeFromCart(productId) {
-        const newCart = [...cart];
-        const index = newCart.findIndex(item => item.id === productId);
-        if (index !== -1) {
-            newCart.splice(index, 1);
-            setCart(newCart);
-        }
+        setCart(cart.filter(item => item.id !== productId))
     }
 
     function deleteProduct(productId) {
