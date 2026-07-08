@@ -1,14 +1,17 @@
 import { useState } from "react";
-import productsData from "./data/products.json";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import CategoryFilter from "./components/CategoryFilter";
-import ProductList from "./components/ProductList";
-import Cart from "./components/Cart";
+import productsData from "../data/products.json";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import CategoryFilter from "../components/Category/CategoryFilter";
+import ProductList from "../components/ProductList/ProductList";
+import Cart from "../components/Cart/Cart";
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import NotFound from "../components/NotFound/NotFound";
+import AddProduct from "../components/AddProduct/AddProduct";
+import {Link} from "react-router-dom";
 
-function App() {
-    const [products, setProducts] = useState(productsData);
+function Home({products, setProducts, addProduct}) {
     const [cart, setCart] = useState([]);
     const [category, setCategory] = useState("Tous");
 
@@ -30,6 +33,8 @@ function App() {
         setCart(prevCart => prevCart.filter(item => item.id !== productId));
     }
 
+
+
     const filteredProducts = category === "Tous"
         ? products
         : products.filter(p => p.category === category);
@@ -38,7 +43,8 @@ function App() {
 
     return (
         <div className="app-container">
-            <Header />
+            <Header/>
+
 
             <div className="controls">
                 <CategoryFilter category={category} setCategory={setCategory} />
@@ -66,7 +72,6 @@ function App() {
                         />
                     )}
                 </section>
-
                 <aside>
                     <Cart
                         cart={cart}
@@ -82,4 +87,35 @@ function App() {
     );
 }
 
+
+function App(){
+    const [products, setProducts] = useState(productsData);
+
+    function addProduct(product){
+        setProducts(prev => [...prev, product]);
+    }
+    return(
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <Home
+                        products={products}
+                        setProducts={setProducts}
+                        addProduct={addProduct}
+                    />
+                }
+            />
+
+            <Route
+                path="/add-product"
+                element={<AddProduct addProduct={addProduct} />}
+            />
+
+            <Route path="*" element={<NotFound />} />
+        </Routes>
+    );
+}
+
 export default App;
+

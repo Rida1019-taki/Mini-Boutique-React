@@ -1,5 +1,6 @@
 import { useState } from "react";
-import CartItem from "./CartItem";
+import CartItem from "../CartItem/CartItem";
+import "./Cart.css"
 
 function Cart({ cart, total, removeFromCart, clearCart }) {
     const [showSuccess, setShowSuccess] = useState(false);

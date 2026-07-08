@@ -1,0 +1,165 @@
+.add-product-container {
+  max-width: 640px;
+  margin: 48px auto;
+  background: var(--bg-card);
+  padding: 48px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-light);
+  position: relative;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.back-link:hover {
+  color: var(--primary);
+  gap: 10px;
+}
+
+.add-product-container h2 {
+  color: var(--text-primary);
+  margin-bottom: 36px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.add-product-container h2::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin: 14px auto 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+.add-product-container input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 15px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.add-product-container input:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 4px var(--primary-bg);
+}
+
+.add-product-container input::placeholder {
+  color: var(--text-muted);
+}
+
+.add-product-container button {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+  letter-spacing: 0.3px;
+}
+
+.add-product-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+.add-product-container button:active {
+  transform: translateY(0);
+}
+
+.add-product-container {
+  animation: formSlideIn 0.4s ease-out;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .add-product-container {
+    margin: 32px 24px;
+    padding: 36px 32px;
+  }
+
+  .add-product-container h2 {
+    font-size: 24px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-product-container {
+    margin: 20px 16px;
+    padding: 24px 20px;
+  }
+
+  .add-product-container h2 {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .add-product-container input {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .add-product-container button {
+    padding: 14px;
+    font-size: 15px;
+  }
+}
