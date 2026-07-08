@@ -1,4 +1,5 @@
-import ProductImage from "./ProductImage";
+import ProductImage from "../ProductImage/ProductImage";
+import "./ProductCard.css"
 
 function ProductCard({ product, addToCart, deleteProduct }) {
     return (

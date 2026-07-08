@@ -1,0 +1,129 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  padding: 32px 40px;
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.controls {
+  padding: 20px 40px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 72px;
+  z-index: 10;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.3px;
+}
+
+.section-title::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 2px;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 40px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 2px dashed var(--border);
+}
+
+.empty h3 {
+  font-size: 22px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.empty p {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-size: 15px;
+}
+
+.btn-reset {
+  background: var(--primary);
+  padding: 12px 32px;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-reset:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr 320px;
+    gap: 24px;
+    padding: 24px 24px;
+  }
+
+  .controls {
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .controls {
+    padding: 14px 16px;
+    top: 64px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .empty {
+    padding: 60px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-layout {
+    padding: 12px;
+    gap: 16px;
+  }
+}

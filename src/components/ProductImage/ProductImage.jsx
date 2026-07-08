@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ProductImage.css"
 
 function ProductImage({ src, alt }) {
     const [error, setError] = useState(false);

@@ -1,0 +1,81 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 40px 20px;
+  text-align: center;
+  flex: 1;
+}
+
+.not-found h1 {
+  font-size: 120px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary) 0%, #E040FB 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -4px;
+}
+
+.not-found h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.not-found p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.not-found button {
+  background: var(--primary);
+  border: none;
+  padding: 12px 32px;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.not-found button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-primary);
+}
+
+.not-found a {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .not-found h1 {
+    font-size: 80px;
+  }
+
+  .not-found h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found h1 {
+    font-size: 60px;
+    letter-spacing: -2px;
+  }
+
+  .not-found h2 {
+    font-size: 18px;
+  }
+
+  .not-found p {
+    font-size: 14px;
+  }
+}

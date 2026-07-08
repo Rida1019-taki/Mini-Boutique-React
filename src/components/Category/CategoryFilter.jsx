@@ -1,3 +1,5 @@
+import "./Categorie.css"
+
 function CategoryFilter({ category, setCategory }) {
     const categories = ["Tous", "Informatique", "Electronique", "Maison"];
 
