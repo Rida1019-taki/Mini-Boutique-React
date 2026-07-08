@@ -1,64 +1,65 @@
 .navbar {
-  background: var(--bg-card);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   padding: 0 40px;
-  height: 72px;
+  height: 64px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   color: var(--text-primary);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid var(--border);
 }
 
 .navbar-brand {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  background: linear-gradient(135deg, var(--primary) 0%, #E040FB 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.navbar-brand::before {
-  content: '◆';
-  -webkit-text-fill-color: initial;
-  color: var(--primary);
   font-size: 20px;
-}
-
-.navbar button {
-  background: var(--primary);
-  padding: 10px 24px;
-  border-radius: var(--radius);
-  color: white;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  letter-spacing: 0.3px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+.navbar-brand::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: var(--primary);
+  border-radius: 8px;
+}
+
+.navbar button {
+  background: var(--primary);
+  padding: 8px 20px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .navbar button::before {
   content: '+';
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .navbar button:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
   box-shadow: var(--shadow-primary);
+}
+
+.navbar button:active {
+  transform: scale(0.97);
 }
 
 .navbar a {
@@ -72,31 +73,41 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 20px;
-    height: 64px;
-  }
-
-  .navbar-brand {
-    font-size: 20px;
-  }
-
-  .navbar button {
-    padding: 8px 18px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 16px;
-    height: 60px;
+    height: 56px;
   }
 
   .navbar-brand {
     font-size: 18px;
   }
 
+  .navbar-brand::before {
+    width: 24px;
+    height: 24px;
+  }
+
   .navbar button {
-    padding: 7px 14px;
+    padding: 7px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 16px;
+    height: 52px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .navbar-brand::before {
+    width: 22px;
+    height: 22px;
+  }
+
+  .navbar button {
+    padding: 6px 14px;
     font-size: 12px;
   }
 }

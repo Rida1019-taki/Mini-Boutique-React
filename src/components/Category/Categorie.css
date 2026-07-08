@@ -1,34 +1,32 @@
 .filter-btn {
   background: transparent;
-  border: none;
-  padding: 8px 20px;
-  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 7px 18px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-secondary);
   transition: all 0.2s ease;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  position: relative;
+  white-space: nowrap;
 }
 
 .filter-btn:hover {
+  border-color: var(--primary);
   color: var(--primary);
-  background: var(--primary-bg);
+  background: var(--primary-subtle);
 }
 
 .filter-btn.active {
   background: var(--primary);
+  border-color: var(--primary);
   color: white;
-  font-weight: 600;
-  box-shadow: var(--shadow-primary);
+  font-weight: 500;
 }
 
 @media (max-width: 480px) {
   .filter-btn {
     padding: 6px 14px;
     font-size: 12px;
-    margin-right: 4px;
   }
 }

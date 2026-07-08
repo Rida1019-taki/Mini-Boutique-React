@@ -1,75 +1,76 @@
 .add-product-container {
-  max-width: 640px;
+  max-width: 520px;
   margin: 48px auto;
   background: var(--bg-card);
-  padding: 48px;
+  padding: 40px;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   border: 1px solid var(--border-light);
   position: relative;
+  animation: formSlideIn 0.3s ease-out;
+}
+
+@keyframes formSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: var(--text-secondary);
-  font-size: 14px;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
 }
 
 .back-link:hover {
   color: var(--primary);
-  gap: 10px;
+  gap: 8px;
 }
 
 .add-product-container h2 {
   color: var(--text-primary);
-  margin-bottom: 36px;
+  margin-bottom: 28px;
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.add-product-container h2::after {
-  content: '';
-  display: block;
-  width: 56px;
-  height: 3px;
-  background: var(--primary);
-  border-radius: 2px;
-  margin: 14px auto 0;
+  letter-spacing: -0.3px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   color: var(--text-primary);
   font-weight: 600;
   font-size: 13px;
-  letter-spacing: 0.3px;
 }
 
 .add-product-container input {
   width: 100%;
-  padding: 12px 16px;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  font-size: 15px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
   transition: all 0.2s ease;
   font-family: inherit;
   background: var(--bg);
@@ -80,7 +81,7 @@
   outline: none;
   border-color: var(--primary);
   background: var(--bg-card);
-  box-shadow: 0 0 0 4px var(--primary-bg);
+  box-shadow: 0 0 0 3px var(--primary-bg);
 }
 
 .add-product-container input::placeholder {
@@ -89,51 +90,35 @@
 
 .add-product-container button {
   width: 100%;
-  padding: 16px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  padding: 12px;
+  background: var(--primary);
   border: none;
   border-radius: var(--radius);
   color: white;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   margin-top: 8px;
-  letter-spacing: 0.3px;
 }
 
 .add-product-container button:hover {
-  transform: translateY(-2px);
+  background: var(--primary-dark);
   box-shadow: var(--shadow-primary);
 }
 
 .add-product-container button:active {
-  transform: translateY(0);
-}
-
-.add-product-container {
-  animation: formSlideIn 0.4s ease-out;
-}
-
-@keyframes formSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transform: scale(0.98);
 }
 
 @media (max-width: 768px) {
   .add-product-container {
-    margin: 32px 24px;
-    padding: 36px 32px;
+    margin: 32px 20px;
+    padding: 32px 28px;
   }
 
   .add-product-container h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .form-row {
@@ -144,22 +129,22 @@
 
 @media (max-width: 480px) {
   .add-product-container {
-    margin: 20px 16px;
+    margin: 20px 12px;
     padding: 24px 20px;
   }
 
   .add-product-container h2 {
-    font-size: 22px;
-    margin-bottom: 24px;
+    font-size: 18px;
+    margin-bottom: 20px;
   }
 
   .add-product-container input {
-    padding: 10px 14px;
-    font-size: 14px;
+    padding: 9px 12px;
+    font-size: 13px;
   }
 
   .add-product-container button {
-    padding: 14px;
-    font-size: 15px;
+    padding: 11px;
+    font-size: 14px;
   }
 }

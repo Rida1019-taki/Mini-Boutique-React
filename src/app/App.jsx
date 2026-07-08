@@ -9,7 +9,6 @@ import './App.css';
 import {Routes, Route} from "react-router-dom";
 import NotFound from "../components/NotFound/NotFound";
 import AddProduct from "../components/AddProduct/AddProduct";
-import {Link} from "react-router-dom";
 
 function Home({products, setProducts, addProduct}) {
     const [cart, setCart] = useState([]);

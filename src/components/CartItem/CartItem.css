@@ -1,16 +1,16 @@
 .cart-item {
   display: flex;
   align-items: center;
-  padding: 14px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border-light);
-  transition: background 0.2s ease;
+  transition: background 0.15s ease;
   gap: 12px;
 }
 
 .cart-item:hover {
-  background: var(--bg);
+  background: var(--primary-subtle);
   margin: 0 -8px;
-  padding: 14px 8px;
+  padding: 12px 8px;
   border-radius: var(--radius-sm);
 }
 
@@ -19,24 +19,24 @@
 }
 
 .item-thumb {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   flex-shrink: 0;
-  background: linear-gradient(135deg, var(--primary), #E040FB) !important;
+  background: var(--primary) !important;
 }
 
 .item-info {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
   min-width: 0;
 }
 
@@ -50,8 +50,8 @@
 }
 
 .item-price {
-  color: var(--primary);
-  font-weight: 600;
+  color: var(--text-muted);
+  font-weight: 500;
   font-size: 13px;
 }
 
@@ -63,26 +63,26 @@
   color: var(--text-muted);
   cursor: pointer;
   font-size: 12px;
-  font-weight: 700;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  transition: all 0.15s ease;
   flex-shrink: 0;
 }
 
 .btn-remove-item:hover {
-  background: #FEE2E2;
+  background: var(--accent-bg);
   border-color: var(--accent);
   color: var(--accent);
 }
 
 @media (max-width: 480px) {
   .cart-item {
-    padding: 12px 0;
+    padding: 10px 0;
   }
 
   .item-thumb {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
   }
 
   .item-name {

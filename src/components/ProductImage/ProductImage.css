@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-weight: 600;
-  font-size: 16px;
-  background: linear-gradient(135deg, var(--primary), #E040FB);
+  font-weight: 500;
+  font-size: 14px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
 }

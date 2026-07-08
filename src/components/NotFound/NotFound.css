@@ -10,45 +10,47 @@
 }
 
 .not-found h1 {
-  font-size: 120px;
+  font-size: 96px;
   font-weight: 800;
-  background: linear-gradient(135deg, var(--primary) 0%, #E040FB 50%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--primary);
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: -4px;
 }
 
 .not-found h2 {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .not-found p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-secondary);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .not-found button {
   background: var(--primary);
   border: none;
-  padding: 12px 32px;
+  padding: 10px 28px;
   border-radius: var(--radius);
   color: white;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .not-found button:hover {
   background: var(--primary-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-primary);
+}
+
+.not-found button:active {
+  transform: translateY(0);
 }
 
 .not-found a {
@@ -57,17 +59,17 @@
 
 @media (max-width: 768px) {
   .not-found h1 {
-    font-size: 80px;
+    font-size: 72px;
   }
 
   .not-found h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .not-found h1 {
-    font-size: 60px;
+    font-size: 56px;
     letter-spacing: -2px;
   }
 
