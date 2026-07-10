@@ -1,4 +1,3 @@
-import {useState} from "react";
 import {useNavigate, Link} from "react-router-dom";
 import "./AddProduct.css";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,8 +9,9 @@ const schema = yup.object({
     string().required("Le nom est obligatoire."),
 
     price: yup.
-    number().typeError("Le prix doit etre un nombre.")
-        .string().required("Le price est obligatoire."),
+    number().
+    typeError("Le prix doit etre un nombre.").positive("Le prix doit être supérieur à 0.")
+        .required("Le price est obligatoire."),
 
     categorie: yup.
     string().required("Le categorie est obligatoire."),
@@ -27,7 +27,7 @@ function AddProduct({addProduct}){
 
     const {
         register,
-        handleSumbit,
+        handleSubmit,
         reset,
         formState: {errors},
     } = useForm({
@@ -50,11 +50,11 @@ function AddProduct({addProduct}){
         <div className="add-product-container">
             <Link to="/" className="back-link">&larr; Retour</Link>
             <h2>Ajouter un produit</h2>
-            <form onSubmit={handleSumbit(handleAddProduct)}>
+            <form onSubmit={handleSubmit(handleAddProduct)}>
             <div className="form-row">
                 <div className="form-group">
                     <label>Nom du produit</label>
-                    <input type="text" value={name}
+                    <input type="text"
                            placeholder="Nom du produit"
                            {...register("name")}
                     />
@@ -62,7 +62,7 @@ function AddProduct({addProduct}){
                 </div>
                 <div className="form-group">
                     <label>Prix (DH)</label>
-                    <input type="number" value={price}
+                    <input type="number"
                            placeholder="Prix"
                            {...register("price")}
                     />
@@ -72,7 +72,7 @@ function AddProduct({addProduct}){
             <div className="form-row">
                 <div className="form-group">
                     <label>Categorie</label>
-                    <input type="text" value={category}
+                    <input type="text"
                            placeholder="Categorie"
                            {...register("categorie")}
                     />
@@ -80,7 +80,7 @@ function AddProduct({addProduct}){
                 </div>
                 <div className="form-group">
                     <label>Image (URL)</label>
-                    <input type="text" value={image}
+                    <input type="text"
                            placeholder="URL de l'image"
                            {...register("image")}
                     />

@@ -84,6 +84,12 @@
   box-shadow: 0 0 0 3px var(--primary-bg);
 }
 
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
 .add-product-container input::placeholder {
   color: var(--text-muted);
 }
