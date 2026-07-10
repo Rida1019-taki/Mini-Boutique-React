@@ -4,6 +4,22 @@ import "./AddProduct.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+const schema = yup.object({
+    name: yup.
+    string.required("Le nom est obligatoire."),
+
+    price: yup.
+    number().typeError("Le prix doit etre un nombre.")
+        .string().url().required("Le price est obligatoire."),
+
+    categorie: yup.
+    string().required("Le categorie est obligatoire."),
+
+    image: yup.
+    string().required("Le image est obligatoire."),
+})
+
+
 function AddProduct({addProduct}){
     const [name, setName] = useState("");
     const [price, setPrice] = useState(0);
