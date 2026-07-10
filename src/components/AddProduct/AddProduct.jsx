@@ -1,6 +1,8 @@
 import {useState} from "react";
 import {useNavigate, Link} from "react-router-dom";
 import "./AddProduct.css";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 function AddProduct({addProduct}){
     const [name, setName] = useState("");
