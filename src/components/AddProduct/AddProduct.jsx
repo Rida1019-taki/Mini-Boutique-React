@@ -16,8 +16,10 @@ const schema = yup.object({
     categorie: yup.
     string().required("Le categorie est obligatoire."),
 
-    image: yup.
-    string().url("Veuillez saisir une URL valide").required("Le image est obligatoire."),
+    image: yup
+        .string()
+        .url("Veuillez saisir une URL valide")
+        .required("Le image est obligatoire.")
 })
 
 
@@ -84,10 +86,10 @@ function AddProduct({addProduct}){
                            placeholder="URL de l'image"
                            {...register("image")}
                     />
-                    <p className="error">{errors.iamge?.message}</p>
+                    <p className="error">{errors.image?.message}</p>
                 </div>
             </div>
-            <button onClick={handleAddProduct}>Ajouter</button>
+            <button type="submit">Ajouter</button>
             </form>
         </div>
     );
