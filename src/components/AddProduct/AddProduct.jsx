@@ -3,76 +3,92 @@ import {useNavigate, Link} from "react-router-dom";
 import "./AddProduct.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import {useForm} from "react-hook-form";
 
 const schema = yup.object({
     name: yup.
-    string.required("Le nom est obligatoire."),
+    string().required("Le nom est obligatoire."),
 
     price: yup.
     number().typeError("Le prix doit etre un nombre.")
-        .string().url().required("Le price est obligatoire."),
+        .string().required("Le price est obligatoire."),
 
     categorie: yup.
     string().required("Le categorie est obligatoire."),
 
     image: yup.
-    string().required("Le image est obligatoire."),
+    string().url("Veuillez saisir une URL valide").required("Le image est obligatoire."),
 })
 
 
 function AddProduct({addProduct}){
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState(0);
-    const [category, setCategory] = useState("");
-    const [image, setImage] = useState("");
+
     const navigate = useNavigate();
 
-    function handleAddProduct(){
+    const {
+        register,
+        handleSumbit,
+        reset,
+        formState: {errors},
+    } = useForm({
+        resolver: yupResolver(schema),
+    })
+
+    function handleAddProduct(data){
         const newProduct = {
             id : Date.now(),
-            name : name,
-            price : Number(price),
-            category : category,
-            image : image
+            ...data,
+            price : Number(data.price),
         }
 
         addProduct(newProduct);
-        navigate("/")
+        reset();
+        navigate("/");
     }
 
     return(
         <div className="add-product-container">
             <Link to="/" className="back-link">&larr; Retour</Link>
             <h2>Ajouter un produit</h2>
+            <form onSubmit={handleSumbit(handleAddProduct)}>
             <div className="form-row">
                 <div className="form-group">
                     <label>Nom du produit</label>
-                    <input type="text" value={name} placeholder="Nom du produit" onChange={(e) =>
-                        setName(e.target.value)
-                    }/>
+                    <input type="text" value={name}
+                           placeholder="Nom du produit"
+                           {...register("name")}
+                    />
+                    <p className="error">{errors.name?.message}</p>
                 </div>
                 <div className="form-group">
                     <label>Prix (DH)</label>
-                    <input type="number" value={price} placeholder="Prix" onChange={(e) =>
-                        setPrice(e.target.value)
-                    }/>
+                    <input type="number" value={price}
+                           placeholder="Prix"
+                           {...register("price")}
+                    />
+                    <p className="error">{errors.price?.message}</p>
                 </div>
             </div>
             <div className="form-row">
                 <div className="form-group">
                     <label>Categorie</label>
-                    <input type="text" value={category} placeholder="Categorie" onChange={(e) =>
-                        setCategory(e.target.value)
-                    }/>
+                    <input type="text" value={category}
+                           placeholder="Categorie"
+                           {...register("categorie")}
+                    />
+                    <p className="error">{errors.categorie?.message}</p>
                 </div>
                 <div className="form-group">
                     <label>Image (URL)</label>
-                    <input type="text" value={image} placeholder="URL de l'image" onChange={(e) =>
-                        setImage(e.target.value)
-                    }/>
+                    <input type="text" value={image}
+                           placeholder="URL de l'image"
+                           {...register("image")}
+                    />
+                    <p className="error">{errors.iamge?.message}</p>
                 </div>
             </div>
             <button onClick={handleAddProduct}>Ajouter</button>
+            </form>
         </div>
     );
 }
